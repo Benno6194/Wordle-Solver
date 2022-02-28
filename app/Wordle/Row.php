@@ -48,7 +48,6 @@ class Row
         $correctCounter = 0;
         foreach($this->getArrayWord() as $key => $letterRow) {
 
-
             if($splitSolution[$key] === $letterRow['letter']) {
                 $correctCounter ++;
                 $this->arrayWord[$key]['position'] = self::POSITION_CORRECT;
