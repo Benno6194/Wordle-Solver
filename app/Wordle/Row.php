@@ -72,4 +72,25 @@ class Row
     {
         return $this->isSolution;
     }
+
+    public function render()
+    {
+        $string = '';
+        foreach ($this->arrayWord as $letter) {
+            $colorLetter = strtoupper($letter['letter']);
+
+            switch($letter['position']) {
+                case self::POSITION_NONE:
+                    $string.='<fg=white;bg=gray> '.$colorLetter.' </>';
+                    break;
+                case self::POSITION_WRONG:
+                    $string.='<fg=white;bg=yellow> '.$colorLetter.' </>';
+                    break;
+                case self::POSITION_CORRECT:
+                    $string.='<fg=white;bg=green> '.$colorLetter.' </>';
+                    break;
+            }
+        }
+        return $string;
+    }
 }
