@@ -47,6 +47,15 @@ class WordleSolver extends Command
 
         $solver->start($this->wordle);
 
+        while($this->wordle->isComplete() === false) {
+            $solver->guess();
+        }
+
+        foreach($solver->getGuesses() as $row) {
+            $this->line($row->render());
+        }
+
         return 1;
     }
+
 }
