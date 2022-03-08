@@ -13,18 +13,7 @@ class Game
     {
         $this->solution = $this->wordlist[rand(0, count($this->wordlist) -1)];
     }
-
-    public function hasLetterSomewhere($letter)
-    {
-        $this->possibles = array_filter(
-            $this->possibles,
-            function($word) use ($letter) {
-                return str_contains($word, $letter);
-            }
-        );
-    }
-
-
+    
     public function guessRow($row): Row {
         $pspell = pspell_new("en");
 
